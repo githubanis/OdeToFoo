@@ -18,7 +18,9 @@ namespace OdeToFood2.Pages.Restaurants
             this.restaurantData = restaurantData;
         }
 
-        public Restaurent Restaurent { get; set; }
+        [TempData]
+        public string Message { get; set; }
+        public Restaurant Restaurent { get; set; }
         public IActionResult OnGet(int restaurantId)
         {
             Restaurent = restaurantData.GetById(restaurantId);

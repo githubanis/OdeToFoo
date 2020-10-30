@@ -8,18 +8,18 @@ namespace OdeToFood.Data
 {
     public class InMemoryRestaurantData : IRestaurantData
     {
-        public List<Restaurent> restaurents;
+        public List<Restaurant> restaurents;
         public InMemoryRestaurantData()
         {
-            restaurents = new List<Restaurent>()
+            restaurents = new List<Restaurant>()
             {
-                new Restaurent{ Id = 1, Name = "Anis's Pizza", Location = "Dhaka", Cuisine = CuisineType.Mexican },
-                new Restaurent{ Id = 2, Name = "Jony's Pizza", Location = "Pabna", Cuisine = CuisineType.Italian },
-                new Restaurent{ Id = 3, Name = "Joy's Pizza", Location = "Pabna", Cuisine = CuisineType.Indian }
+                new Restaurant{ Id = 1, Name = "Anis's Pizza", Location = "Dhaka", Cuisine = CuisineType.Mexican },
+                new Restaurant{ Id = 2, Name = "Jony's Pizza", Location = "Pabna", Cuisine = CuisineType.Italian },
+                new Restaurant{ Id = 3, Name = "Joy's Pizza", Location = "Pabna", Cuisine = CuisineType.Indian }
                 
             };
         }
-        //public IEnumerable<Restaurent> GetAll()
+        //public IEnumerable<Restaurant> GetAll()
         //{
         //    var query =
         //        from r in restaurents
@@ -29,7 +29,7 @@ namespace OdeToFood.Data
         //    return query;
         //}
 
-        public IEnumerable<Restaurent> GetRestaurentsByName(string name = null)
+        public IEnumerable<Restaurant> GetRestaurentsByName(string name = null)
         {
             var query =
                 from r in restaurents
@@ -40,9 +40,34 @@ namespace OdeToFood.Data
             return query;
         }
 
-        public Restaurent GetById(int id)
+        public Restaurant GetById(int id)
         {
             return restaurents.SingleOrDefault(r => r.Id == id);
+        }
+
+        public Restaurant Update(Restaurant updatedRestaurant)
+        {
+            var restaurent = restaurents.SingleOrDefault(r => r.Id == updatedRestaurant.Id);
+            if (restaurent != null)
+            {
+                restaurent.Name = updatedRestaurant.Name;
+                restaurent.Location = updatedRestaurant.Location;
+                restaurent.Cuisine = updatedRestaurant.Cuisine;
+            }
+            return restaurent;
+        }
+
+        public int Commit()
+        {
+            return 0;
+        }
+
+        public Restaurant Add(Restaurant newRestaurant)
+        {
+            restaurents.Add(newRestaurant);
+            newRestaurant.Id = restaurents.Max(r => r.Id) + 1;
+
+            return newRestaurant;
         }
     }
 }

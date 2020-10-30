@@ -20,12 +20,12 @@ namespace OdeToFood2.Pages.Restaurants
             this.configuration = configuration;
             this.restaurantData = restaurantData;
         }
-        public string Message { get; set; }
-
+        public string Message { get; set; }   
+            
         [BindProperty(SupportsGet =true)]
         public string SearchTerm { get; set; }
 
-        public IEnumerable<Restaurent> Restaurents { get; set; }
+        public IEnumerable<Restaurant> Restaurents { get; set; }
 
         public void OnGet()
         {
