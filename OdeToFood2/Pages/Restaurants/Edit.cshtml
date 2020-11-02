@@ -1,6 +1,7 @@
 ﻿@page "{restaurantId:int?}"
 @model OdeToFood2.Pages.Restaurants.EditModel
 @{
+    ViewData["Title"] = $"Editing {Model.Restaurant.Name}";
 }
 <h2>Editing @Model.Restaurant.Name</h2>
 

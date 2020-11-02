@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OdeToFood.Data", "OdeToFood
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OdeToFood2", "OdeToFood2\OdeToFood2.csproj", "{CFD10E0F-1404-4DF4-8701-F305AACB77F9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFHourseForFun", "ConsoleApp1\EFHourseForFun.csproj", "{2791152E-8C1F-4C26-B49C-7C22E8966402}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EFHourseForFun", "ConsoleApp1\EFHourseForFun.csproj", "{2791152E-8C1F-4C26-B49C-7C22E8966402}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
